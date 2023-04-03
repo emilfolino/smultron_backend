@@ -17,4 +17,19 @@ router.get("/", async (req, res) => {
     });
 });
 
+router.post("/", async (req, res) => {
+    const result = await placesModel.create(req.body);
+
+    if (result.hasOwnProperty("errors")) {
+        const status = result.errors.status;
+
+        return res.status(status).json(result);
+    }
+
+    return res.status(201).json({
+        data: result
+    });
+});
+
+
 module.exports = router;

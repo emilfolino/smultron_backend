@@ -19,6 +19,32 @@ const places = {
             await db.close();
         }
     },
+
+    create: async function create(newPlace) {
+        let db = await database.openDb();
+
+        try {
+            const result = await db.run(
+                'INSERT INTO places (name, url, latitude, longitude, user_id) VALUES (?, ?, ?, ?, ?)',
+                newPlace.name,
+                newPlace.url,
+                newPlace.latitude,
+                newPlace.longitude,
+                newPlace.user_id,
+            );
+
+            return { ...newPlace, id: result.lastID };
+        } catch(error) {
+            return {
+                errors: {
+                    status: error.status,
+                    message: error.message,
+                }
+            };
+        } finally {
+            await db.close();
+        }
+    },
 };
 
 module.exports = places;
