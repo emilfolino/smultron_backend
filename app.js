@@ -1,10 +1,13 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const morgan = require('morgan');
 const cors = require('cors');
 
-const places = require('./routes/places.js')
+const places = require('./routes/places.js');
+const auth = require("./routes/auth.js");
 
 const app = express();
 
@@ -27,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' })); // for parsin
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/places", places);
+app.use("/auth", auth);
 
 app.get("/", (req, res) => {
     return res.json({

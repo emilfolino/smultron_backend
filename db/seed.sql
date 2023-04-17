@@ -1,6 +1,3 @@
-INSERT INTO users (email, password, username) VALUES ("efo@bth.se", "boo", "efo");
-INSERT INTO users (email, password, username) VALUES ("aar@bth.se", "booli", "Zeldah");
-
 INSERT INTO places (name, url, latitude, longitude, user_id) VALUES ("Wämöparken", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/W%C3%A4m%C3%B6parken_entr%C3%A9.jpg/360px-W%C3%A4m%C3%B6parken_entr%C3%A9.jpg", 56.179070, 15.612130, 1);
 
 INSERT INTO places (name, url, latitude, longitude, user_id) VALUES ("Hoglands park", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Hoglands_park_overview.jpg/640px-Hoglands_park_overview.jpg", 56.164035, 15.585823, 1);

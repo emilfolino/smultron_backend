@@ -20,7 +20,8 @@ const places = {
         }
     },
 
-    create: async function create(newPlace) {
+    create: async function create(newPlace, userId) {
+        console.log(userId)
         let db = await database.openDb();
 
         try {
@@ -30,7 +31,7 @@ const places = {
                 newPlace.url,
                 newPlace.latitude,
                 newPlace.longitude,
-                newPlace.user_id,
+                userId,
             );
 
             return { ...newPlace, id: result.lastID };
