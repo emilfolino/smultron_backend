@@ -21,7 +21,6 @@ const places = {
     },
 
     create: async function create(newPlace, userId) {
-        console.log(userId)
         let db = await database.openDb();
 
         try {

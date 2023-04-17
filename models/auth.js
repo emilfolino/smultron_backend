@@ -57,9 +57,7 @@ const auth = {
                 }
 
                 if (result) {
-                    console.log(user)
                     let payload = { email: user.email, user_id: user.rowid };
-                    console.log(payload);
                     let jwtToken = jwt.sign(payload, jwtSecret, { expiresIn: '24h' });
 
                     return res.status(201).json({

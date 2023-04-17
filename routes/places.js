@@ -21,7 +21,6 @@ router.get("/", async (req, res) => {
 router.post("/",
     (req, res, next) => authModel.checkToken(req, res, next),
     async (req, res) => {
-        console.log(req.body, req.user)
         const result = await placesModel.create(req.body, req.user.user_id);
 
         if (result.hasOwnProperty("errors")) {
